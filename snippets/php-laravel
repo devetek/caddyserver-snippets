@@ -1,0 +1,29 @@
+# snippets/laravel-app
+# {args.0} represents php-fpm version. Example: "php8.0", "php7.2".
+# {args.1} represents the root url of the app. Example: "terpusat.com".
+# {args.2} represents the root path to the app. Example: "/var/www/my-site.com"
+# Ref: https://jorgeglz.io/blog/setting-up-laravel-applications-with-caddy-2/
+
+(php-laravel) {
+    {args.1} {
+        # Resolve the root directory for the app
+        root * {args.2}/public
+
+        # Provide Zstd and Gzip compression
+        encode zstd gzip
+
+        # Enable PHP-FPM
+        php_fastcgi unix//var/run/{args.0}-fpm.sock
+
+        # Allow caddy to serve static files
+        file_server
+
+        log {
+            output file /var/log/caddy/{args.1}.access.log {
+                roll_size 100mb
+                roll_keep 3
+                roll_keep_for 720h
+            }
+        }
+    }
+}

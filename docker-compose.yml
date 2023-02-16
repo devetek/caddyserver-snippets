@@ -1,0 +1,13 @@
+version: '3'
+services:
+  caddy:
+    image: caddy:2.6.2
+    container_name: devetek_caddy_snippet
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./snippets:/etc/caddy/snippets
+      - ./vhosts:/etc/caddy/vhosts
+      - ./Caddyfile:/etc/caddy/Caddyfile

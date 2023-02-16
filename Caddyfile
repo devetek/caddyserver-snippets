@@ -1,0 +1,22 @@
+# Main Controller
+# Refs:
+# https://caddyserver.com/docs/modules/tls
+# https://caddyserver.com/docs/modules/http
+
+# Non vHost snippets
+(common) {
+    header /* {
+        -Server
+    }
+}
+
+(cors) {
+	@origin header Origin {args.0}
+	header @origin Access-Control-Allow-Origin "{args.0}"
+	header @origin Access-Control-Allow-Methods "OPTIONS,HEAD,GET,POST,PUT,PATCH,DELETE"
+}
+
+
+import snippets/*
+
+import vhosts/*
