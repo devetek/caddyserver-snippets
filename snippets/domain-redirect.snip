@@ -1,11 +1,11 @@
-# snippets/static-file
+# snippets/domain-redirect
 # {args.0} represents the root url of the app. Example: "terpusat.com".
-# {args.1} represents response body the app. Example: "Hello World!"
+# {args.1} represents the target root url to follow. Example: "devetek.com"
 
-(static-file) {
+(domain-redirect) {
     {args.0} {
-        root * {args.1}
-        file_server
+
+        redir https://{args.1}{uri} permanent
 
         log {
             output file /var/log/caddy/{args.0}.access.log {

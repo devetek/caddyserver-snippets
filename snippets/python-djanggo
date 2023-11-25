@@ -1,0 +1,14 @@
+http://localhost:8087 {
+
+  handle_path /static/* {
+		root * ./staticfiles/
+		file_server
+  }
+
+  handle_path /media/* {
+		root * ./media/
+		file_server
+  }
+
+  reverse_proxy 127.0.0.1:8000
+}

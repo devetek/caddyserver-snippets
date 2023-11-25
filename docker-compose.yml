@@ -5,9 +5,15 @@ services:
     container_name: devetek_caddy_snippet
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+      - "8084:8084"
+      - "8085:8085"
+      - "8086:8086"
     volumes:
       - ./snippets:/etc/caddy/snippets
       - ./vhosts:/etc/caddy/vhosts
       - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./public:/var/www/public

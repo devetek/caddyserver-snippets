@@ -1,1 +1,0 @@
-import php-codeigniter php8.2 php-ci.devetek.com /user/app/php-ci
