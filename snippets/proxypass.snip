@@ -1,14 +1,14 @@
 # snippets/proxypass
-# {args.0} represents the root url of the app. Example: "terpusat.com".
-# {args.1} represents the upstream target. Example: "localhost:9000"
+# {args[0]} represents the root url of the app. Example: "terpusat.com".
+# {args[1]} represents the upstream target. Example: "localhost:9000"
 
 (proxypass) {
-    {args.0} {
+    {args[0]} {
         import common
         encode zstd gzip
 
         handle {
-            reverse_proxy * {args.1} {
+            reverse_proxy * {args[1]} {
                 #header_up Host {http.request.host}
                 #header_up X-Real-IP {http.request.remote}
                 #header_up X-Forwarded-Port {http.request.port}
@@ -16,7 +16,7 @@
         }
 
         log {
-            output file /var/log/caddy/{args.0}.access.log {
+            output file /var/log/caddy/{args[0]}.access.log {
                 roll_size 100mb
                 roll_keep 3
                 roll_keep_for 720h

@@ -1,14 +1,14 @@
 # snippets/domain-redirect
-# {args.0} represents the root url of the app. Example: "terpusat.com".
-# {args.1} represents the target root url to follow. Example: "devetek.com"
+# {args[0]} represents the root url of the app. Example: "terpusat.com".
+# {args[1]} represents the target root url to follow. Example: "devetek.com"
 
 (domain-redirect) {
-    {args.0} {
+    {args[0]} {
 
-        redir https://{args.1}{uri} permanent
+        redir https://{args[1]}{uri} permanent
 
         log {
-            output file /var/log/caddy/{args.0}.access.log {
+            output file /var/log/caddy/{args[0]}.access.log {
                 roll_size 100mb
                 roll_keep 3
                 roll_keep_for 720h

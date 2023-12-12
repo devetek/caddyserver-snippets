@@ -1,1 +1,1 @@
-import proxypass http://localhost:8085 localhost:8000
+import proxypass http://localhost:8085 localhost:8080

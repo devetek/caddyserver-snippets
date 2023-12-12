@@ -1,10 +1,11 @@
 version: '3'
 services:
   caddy:
-    image: caddy:2.6.2
+    image: caddy:2.7.6
     container_name: devetek_caddy_snippet
     restart: unless-stopped
     ports:
+      - "2019:2019"
       - "8080:8080"
       - "8081:8081"
       - "8082:8082"
@@ -12,6 +13,8 @@ services:
       - "8084:8084"
       - "8085:8085"
       - "8086:8086"
+      - "8087:8087"
+      - "9000:9000"
     volumes:
       - ./snippets:/etc/caddy/snippets
       - ./vhosts:/etc/caddy/vhosts

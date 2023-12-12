@@ -1,1 +1,0 @@
-import response-string http://localhost:8082 "Hello World!" 200

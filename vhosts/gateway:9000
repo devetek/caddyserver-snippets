@@ -1,0 +1,44 @@
+http://localhost:8087 {
+        import common
+        # if you want apply cors
+        # import cors
+        encode zstd gzip
+
+        @pathWithSlash path_regexp static (.+)/$
+
+        handle /port-8080 {
+                reverse_proxy localhost:8080
+        }
+        
+        handle /port-8081 {
+                reverse_proxy localhost:8081
+        }
+        
+        handle /port-8082 {
+                reverse_proxy localhost:8082
+        }
+
+        handle /port-8083 {
+                reverse_proxy localhost:8083
+        }
+
+        handle /port-8084 {
+                reverse_proxy localhost:8084
+        }
+
+        handle /port-8085 {
+                reverse_proxy localhost:8085
+        }
+
+        handle /port-8086 {
+                reverse_proxy localhost:8086
+        }
+
+        log {
+            output file /var/log/caddy/localhost:9000.access.log {
+                roll_size 100mb
+                roll_keep 3
+                roll_keep_for 720h
+            }
+        }
+}
