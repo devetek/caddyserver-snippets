@@ -4,7 +4,7 @@ A collection of Caddy server code snippets that will optimize your time in deplo
 
 Caddyserver version 2.7.6
 
-Find more snippets in [Cloud Devetek](https://cloud.devetek.com/). Deploy your application, to your own machine with minimum configuration.
+Find more snippets in [dPanel](https://cloud.terpusat.com/). Deploy your application, to your own machine with minimum configuration.
 
 ### Prerequisites
 
