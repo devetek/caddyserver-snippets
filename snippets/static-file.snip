@@ -6,6 +6,16 @@
     {args[0]} {
         root * {args[1]}
         file_server
+        
+        handle_errors {
+            root * /var/www/public
+            @custom_err file /error-{err.status_code}.html /error.html
+            
+            handle @custom_err {
+                rewrite * {file_match.relative}
+                file_server
+            }
+        }
 
         log {
             output file /var/log/caddy/{args[0]}.access.log {
