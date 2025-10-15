@@ -1,1 +1,1 @@
-import proxypass http://localhost:8085 https://jambal-busuk.net
+import proxypass http://localhost:8085 http://frontend:8080

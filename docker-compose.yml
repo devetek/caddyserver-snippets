@@ -1,5 +1,12 @@
-version: '3'
 services:
+  # Use the qoomon/docker-host image to expose the host ports to the container
+  # frontend:
+  #   image: qoomon/docker-host
+  #   cap_add: [ "NET_ADMIN", "NET_RAW" ]
+  #   restart: on-failure
+  #   environment:
+  #     - PORTS=8080
+
   caddy:
     image: caddy:2.7.6
     container_name: devetek_caddy_snippet

@@ -7,11 +7,14 @@
         import common
         encode zstd gzip
 
+        header * {
+            Content-Security-Policy "default-src 'self'; script-src 'self' blob: 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; object-src 'none'; frame-ancestors 'self'; base-uri 'none'; report-uri https://report.dnocs.io/monitor_browser/security/?id=dpanel; report-to csp-endpoint"
+        }
+
         handle {
             reverse_proxy * {args[1]} {
-                #header_up Host {http.request.host}
-                #header_up X-Real-IP {http.request.remote}
-                #header_up X-Forwarded-Port {http.request.port}
+                header_up X-Real-IP {http.request.remote}
+                header_up X-Forwarded-Port {http.request.port}
             }
         }
 
